@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro Contable - La Taquería S.A. de C.V.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="test.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Encabezado principal -->
+    <header>
+        <h1>Sistema de Registro Contable</h1>
+        <h2>La Taquería S.A. de C.V.</h2>
+    </header>
+
+    <!-- Pestañas de navegación -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('libro-diario')"><i class="material-icons">book</i> Libro Diario</button>
+        <button class="tab-button" onclick="openTab('libro-mayor')"><i class="material-icons">account_tree</i> Libro Mayor</button>
+        <button class="tab-button" onclick="openTab('balanza-comprobacion')"><i class="material-icons">balance</i> Balanza</button>
+        <button class="tab-button" onclick="openTab('balance-general')"><i class="material-icons">assessment</i> Balance</button>
+    </div>
+
+    <!-- Pestaña: Libro Diario -->
+    <div id="libro-diario" class="tab-content active">
+        <div class="container">
+            <!-- Formulario para ingresar Fecha y Descripción -->
+            <div class="operation-form">
+                <div class="form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" placeholder="Descripción breve de la operación" required>
+                </div>
+            </div>
+
+            <!-- Contenido principal con tabla y formulario lateral -->
+            <div class="main-content">
+                <!-- Tabla de operaciones registradas -->
+                <div class="operations-table">
+                    <h3>Operaciones Registradas</h3>
+                    <div id="operaciones-registradas"></div>
+                </div>
+
+                <!-- Formulario lateral para agregar cuentas -->
+                <div class="add-cuenta-sidebar">
+                    <div class="card">
+                        <h4>Agregar Cuenta</h4>
+                        <div class="form-group">
+                            <label for="cuenta-select">Seleccionar cuenta:</label>
+                            <select id="cuenta-select">
+                                <option value="Caja">Caja</option>
+                                <option value="Inventarios">Inventarios</option>
+                                <option value="Terrenos">Terrenos</option>
+                                <option value="Edificios">Edificios</option>
+                                <option value="Muebles">Muebles</option>
+                                <option value="Capital">Capital</option>
+                                <option value="Maquinaria">Maquinaria</option>
+                                <option value="IVA Acreditado">IVA Acreditado</option>
+                                <option value="IVA por Acreditar">IVA por Acreditar</option>
+                                <option value="Proveedores">Proveedores</option>
+                                <option value="Acreedores">Acreedores</option>
+                                <option value="Rentas Pagadas por Anticipado">Rentas Pagadas por Anticipado</option>
+                                <option value="Anticipo Clientes">Anticipo Clientes</option>
+                                <option value="IVA Trasladado">IVA Trasladado</option>
+                                <option value="Papelería y Útiles">Papelería y Útiles</option>
+                            </select>
+                        </div>
+                        <div class="form-group amounts">
+                            <label for="debe">Debe ($):</label>
+                            <input type="number" id="debe" step="0.01" value="0.00">
+                            <label for="haber">Haber ($):</label>
+                            <input type="number" id="haber" step="0.01" value="0.00">
+                        </div>
+                        <button class="btn-add" onclick="agregarCuenta()">+ Agregar Cuenta</button>
+                    </div>
+                    <div class="card cuentas-table">
+                        <h4>Cuentas de la Operación</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cuenta</th>
+                                    <th>Debe ($)</th>
+                                    <th>Haber ($)</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuentas-body"></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td><strong>Totales:</strong></td>
+                                    <td id="total-debe-cuenta">0.00</td>
+                                    <td id="total-haber-cuenta">0.00</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <button class="btn-save" onclick="guardarOperacion()">Guardar Operación</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pestaña: Libro Mayor -->
+    <div id="libro-mayor" class="tab-content">
+        <div class="container">
+            <h3>Libro Mayor (Cuentas T)</h3>
+            <div id="cuentas-t"></div>
+        </div>
+    </div>
+
+    <!-- Dentro de index.html, -->
+    <!-- Pestaña: Balanza de Comprobación -->
+    <div id="balanza-comprobacion" class="tab-content">
+        <div class="container">
+            <h3 class="balanza-title">La Taquería S.A. de C.V.<br>Balanza de comprobación del 1 al 31 de enero de 2025</h3>
+            <div id="balanza-table"></div>
+        </div>
+    </div>
+
+    <script src="balanzaComprobacion.js"></script>
+
+    
+<!-- Pestaña: Balance General -->
+<div id="balance-general" class="tab-content">
+    <div class="container">
+        <h3 class="balance-title">Balance General</h3>
+        <div id="balance-table"></div>
+    </div>
+</div>
+
+<script src="balanceGeneral.js"></script>
+
+    <script src="libroDiario.js"></script>
+    <script src="libroMayor.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

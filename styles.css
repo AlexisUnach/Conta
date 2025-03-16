@@ -1,0 +1,435 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #0056b3;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header h2 {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button {
+    padding: 12px 25px;
+    margin: 0 5px;
+    border: none;
+    background-color: #e9ecef;
+    color: #333;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.tab-button i {
+    margin-right: 8px;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.operation-form {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.operation-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+.operation-form label {
+    flex: 1;
+    font-weight: bold;
+}
+
+.operation-form input {
+    flex: 3;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.operations-table {
+    flex: 2;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.operations-table h3 {
+    margin-top: 0;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.operations-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.operations-table th, .operations-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.operations-table th {
+    background-color: #e9ecef;
+}
+
+.operations-table .operation-header {
+    background-color: #d0d0d0;
+    font-weight: bold;
+}
+
+.add-cuenta-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-cuenta-sidebar .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.add-cuenta-sidebar h4 {
+    margin-top: 0;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.add-cuenta-sidebar .form-group {
+    margin-bottom: 15px;
+}
+
+.add-cuenta-sidebar label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-cuenta-sidebar select, .add-cuenta-sidebar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.amounts {
+    display: flex;
+    gap: 10px;
+}
+
+.amounts label {
+    flex: 1;
+}
+
+.amounts input {
+    flex: 2;
+}
+
+.cuentas-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cuentas-table th, .cuentas-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.cuentas-table th {
+    background-color: #f8f9fa;
+}
+
+.cuentas-table tfoot td {
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+
+.btn-add {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #218838;
+}
+
+.btn-save {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #0056b3;
+}
+
+button[onclick*="eliminarCuenta"] {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[onclick*="eliminarCuenta"]:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para el Libro Mayor (Cuentas T) - Ajuste de línea divisoria */
+.cuenta-t {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cuenta-header {
+    text-align: center;
+    font-weight: bold;
+    background-color: #d0d0d0;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 5px;
+}
+
+.cuenta-t table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.cuenta-t th, .cuenta-t td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: left; /* Alineación por defecto a la izquierda para identificadores */
+}
+
+.cuenta-t td:nth-child(2) {
+    text-align: center; /* Centrar los montos de Debe */
+    border-right: 3px solid #000; /* Línea gruesa y en negrita para separar Debe y Haber */
+}
+
+.cuenta-t td:nth-child(3) {
+    text-align: center; /* Centrar los montos de Haber */
+    border-left: none; /* Eliminar la línea izquierda para evitar duplicados */
+}
+
+.cuenta-t th {
+    background-color: #e9ecef;
+}
+
+.cuenta-t .total-row {
+    font-weight: bold;
+    background-color: #d0d0d0;
+}
+
+.cuenta-t .saldo-row {
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+/* Estilos para la Balanza de Comprobación - Versión 2: Título Cuenta en blanco */
+.balanza-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#balanza-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#balanza-table th, #balanza-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+#balanza-table th {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+#balanza-table th[rowspan="2"] {
+    vertical-align: middle;
+    background-color: transparent; /* Título Cuenta sin fondo */
+}
+
+/* Fondo claro para todas las celdas de datos y encabezados */
+#balanza-table th:nth-child(1),
+#balanza-table th:nth-child(2),
+#balanza-table th:nth-child(3),
+#balanza-table th:nth-child(4),
+#balanza-table th:nth-child(5),
+#balanza-table td:nth-child(1),
+#balanza-table td:nth-child(2),
+#balanza-table td:nth-child(3),
+#balanza-table td:nth-child(4),
+#balanza-table td:nth-child(5) {
+    background-color: #f9f9f9; /* Fondo claro uniforme */
+}
+
+#balanza-table .group-header {
+    display: none;
+}
+
+#balanza-table .total-row {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+/* Estilos para el Balance General */
+.balance-title {
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    color: #333 !important;
+}
+
+#balance-table {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1px !important; /* Mantener la separación mínima */
+    justify-content: space-between !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#balance-table table {
+    width: 32% !important; /* Mantener el ancho */
+    border-collapse: collapse !important;
+    background-color: #f0f0f0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid #ccc !important;
+    margin: 0 !important;
+}
+
+#balance-table th, #balance-table td {
+    border: 1px solid #ddd !important;
+    padding: 10px !important;
+    text-align: left !important;
+}
+
+#balance-table th {
+    background-color: #e9ecef !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}
+
+#balance-table .group-header {
+    background-color: #d0d0d0 !important;
+    font-weight: bold !important;
+}
+
+#balance-table .cuenta {
+    padding-left: 20px !important;
+}
+
+#balance-table .monto {
+    text-align: right !important;
+    padding-right: 20px !important;
+}
+
+#balance-table .no-data {
+    text-align: center !important;
+    color: #888 !important;
+}
+
+#balance-table .total-row {
+    background-color: #e9ecef !important;
+    font-weight: bold !important;
+}
+
+#balance-table .total-pasivo-capital {
+    width: 100% !important;
+    background-color: #e9ecef !important;
+    padding: 10px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    margin-top: 10px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid #ccc !important;
+}
